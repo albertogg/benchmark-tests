@@ -1,5 +1,5 @@
 
-module.exports = function(err, db) {
+module.exports = (function(db) {
   var User = db.define('user', {
     firstName: String,
     lastName: String,
@@ -12,4 +12,6 @@ module.exports = function(err, db) {
       }
     }
   });
-}
+
+  return User;
+})(db);
