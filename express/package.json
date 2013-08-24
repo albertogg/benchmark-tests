@@ -2,6 +2,7 @@
   "name": "benchmark-test",
   "version": "0.0.1",
   "dependencies": {
-    "express": "~3.3.5"
+    "express": "~3.3.5",
+    "orm": "~2.1.0"
   }
 }
