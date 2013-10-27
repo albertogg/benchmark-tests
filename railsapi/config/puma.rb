@@ -5,7 +5,6 @@ max_threads = Integer(ENV['MAX_THREADS'] || 5)
 
 threads min_threads, max_threads
 workers Integer(ENV['WORKER_COUNT'] || 3 )
-port 3000
 
 on_worker_boot do
   ActiveSupport.on_load(:active_record) do
