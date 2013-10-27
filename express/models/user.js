@@ -1,17 +1,16 @@
+module.exports = function(sequelize, DataTypes) {
 
-module.exports = (function(db) {
-  var User = db.define('user', {
-    firstName: String,
-    lastName: String,
-    email; String,
-    country; String
-  }, {
-    methods: {
-      fullName: function() {
-        return this.firstName + ' ' + this.lastName;
+  return sequelize.define("User", {
+
+    firstName: DataTypes.STRING(20),
+    lastName: DataTypes.STRING(20),
+    email: DataTypes.STRING(50),
+    country: DataTypes.STRING(30)
+  },{
+      instanceMethods: {
+        fullName: function() {
+          return this.firstName + ' ' + this.lastName;
+        }
       }
-    }
-  });
-
-  return User;
-})(db);
+  })
+}

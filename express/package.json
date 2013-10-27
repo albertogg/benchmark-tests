@@ -3,6 +3,8 @@
   "version": "0.0.1",
   "dependencies": {
     "express": "~3.3.5",
-    "orm": "~2.1.0"
+    "pg": "2.6.2",
+    "sequelize": "2.0.0-beta.0",
+    "dotenv":"0.0.3"
   }
 }

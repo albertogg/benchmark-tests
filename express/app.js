@@ -1,15 +1,19 @@
+var dotenv = require('dotenv')();
+dotenv.load();
 
 var express = require('express'),
-  orm = require('orm');
+	http    = require('http'),
+ 	db  = require('./ormConfig');
 var app = express();
 
-app.use(orm.express('???', {
-  define: function(db, models, next) {
-    models.user = require('./models/user')(db);
-    return next();
-  }
-}));
+app.set('port', process.env.PORT || 3000);
 
-var port = process.env.PORT || 3000;
-app.listen(port);
-console.log('Listening to port', port);
+db.sequelize.sync({ force: false }).complete(function(err) {
+	if (err) {
+    	throw err
+  	} else {
+  		http.createServer(app).listen(app.get('port'), function() {
+  			console.log('Express server listening on port ' + app.get('port') + '. env: ' + process.env.NODE_ENV);
+  		});
+  	}
+})
