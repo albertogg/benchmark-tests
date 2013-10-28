@@ -7,6 +7,9 @@ var express = require('express'),
  	seeds = require('./seeds');
 var app = express();
 
+var users = require('./controllers/users');
+app.use(users);
+
 app.set('port', process.env.PORT || 3000);
 
 db.sequelize.sync({ force: false }).complete(function(err) {

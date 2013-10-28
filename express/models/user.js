@@ -8,8 +8,8 @@ module.exports = function(sequelize, DataTypes) {
     country: DataTypes.STRING(30)
   },{
       instanceMethods: {
-        fullName: function() {
-          return this.firstName + ' ' + this.lastName;
+        getFullName: function() {
+          return [this.firstName, this.lastName].join(' ');
         }
       }
   })
